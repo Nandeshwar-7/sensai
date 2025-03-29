@@ -50,8 +50,11 @@ export async function updateUser(data) {
       },
       { timeout: 10000 }
     );
-
-    return { success: true, ...result };
+    return { 
+      success: true, 
+      updatedUser: result.updatedUser ? JSON.parse(JSON.stringify(result.updatedUser)) : null, 
+      industryInsight: result.industryInsight ? JSON.parse(JSON.stringify(result.industryInsight)) : null 
+    };
   } catch (error) {
     console.error("Error Updating user and industry:", error.message);
     throw new Error("Failed to update profile" + error.message);
@@ -77,10 +80,11 @@ export async function getUserOnboardingStatus() {
       },
     });
     return {
-      isOnboarded: !!user?.industry,
+      isOnboarded: user?.industry,
     };
   } catch (error) {
     console.error("Error checking onboarding status", error.message);
     throw new Error("Failed to check onboarding status");
   }
 }
+

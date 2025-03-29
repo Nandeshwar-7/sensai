@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import { industries } from '@/data/industries'
 import React from 'react'
 import Onboardingform from './_components/onboarding-form'
