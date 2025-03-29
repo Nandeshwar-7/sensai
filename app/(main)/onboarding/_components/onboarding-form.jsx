@@ -41,10 +41,10 @@ const Onboardingform = ({ industries }) => {
   useEffect(() => {
     if (updateResult?.success && !updateLoading) {
       toast.success("Profile Updated Successfully!");
-      router.replace("/dashboard");
+      router.push("/dashboard");
       router.refresh();
     }
-  }, [updateResult, updateLoading,router])
+  }, [updateResult, updateLoading])
   const watchIndustry = watch("industry");
   return (
     <div className='flex items-center justify-center bg-background'>
