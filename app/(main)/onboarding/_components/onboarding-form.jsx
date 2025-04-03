@@ -41,7 +41,7 @@ const Onboardingform = ({ industries }) => {
   useEffect(() => {
     if (updateResult?.success && !updateLoading) {
       toast.success("Profile Updated Successfully!");
-      router.push("/dashboard");
+      router.push("/");
       router.refresh();
     }
   }, [updateResult, updateLoading])
